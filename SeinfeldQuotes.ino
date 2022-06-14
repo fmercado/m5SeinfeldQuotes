@@ -13,7 +13,6 @@ Display random Seinfeld (TV show) Quotes, using the M5Staack display.
 #include <WiFiMulti.h>
 #include <Arduino_JSON.h>
 #include <HTTPClient.h>
-#define USE_SERIAL Serial
 
 WiFiMulti wifiMulti;
 M5GFX display;
@@ -49,12 +48,10 @@ void setup(void)
   canvas.createSprite(display.width() + 64, 72);
 
   for (uint8_t t = 4; t > 0; t--) {
-    USE_SERIAL.printf("[SETUP] WAIT %d...\n", t);
-    USE_SERIAL.flush();
     delay(1000);
   }
 
-  wifiMulti.addAP("Tafirol", "Tafirol1");
+  wifiMulti.addAP("SSID", "PASSWORD");
 }
 
 void loop(void)
